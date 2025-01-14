@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--head-content-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot AI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .chat-container {
+        background: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        max-height: 90vh;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .messages {
+        flex-grow: 1;
+        padding: 1rem;
+        overflow-y: auto;
+        scrollbar-width: thin;
+      }
+
+      .input-container {
+        display: flex;
+        border-top: 1px solid #e5e7eb;
+        padding: 0.75rem;
+      }
+
+      .input-container input {
+        flex-grow: 1;
+        padding: 0.5rem 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 9999px;
+        outline: none;
+      }
+
+      .input-container button {
+        margin-left: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        background: #4f46e5;
+        color: white;
+        border: none;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .input-container button:hover {
+        background: #4338ca;
+      }
+
+      .message {
+        margin-bottom: 1rem;
+        display: flex;
+      }
+
+      .message.user .bubble {
+        background: #4f46e5;
+        color: white;
+        margin-left: auto;
+      }
+
+      .message.bot .bubble {
+        background: #f3f4f6;
+        color: #111827;
+        margin-right: auto;
+      }
+
+      .bubble {
+        max-width: 75%;
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        border-top-left-radius: 0;
+        font-size: 0.875rem;
+      }
+    </style>
   </head>
   <body class="bg-gray-200">
     <!-- to stop hydration errors -->
     <!-- prettier-ignore -->
-    
-    <div id="__impala" class="container mx-auto md:p-4 h-screen flex items-center justify-center"
-    ><!--app-content-->
-<p>This is a paragraph.</p>
-</div>
+    <div
+      id="__impala"
+      class="container mx-auto md:p-4 h-screen flex items-center justify-center"
+    >
+      <div class="chat-container">
+        <div id="messages" class="messages">
+          <!-- Messages will appear here -->
+        </div>
+        <div class="input-container">
+          <input
+            id="messageInput"
+            type="text"
+            placeholder="Scrivi un messaggio..."
+            class="text-sm"
+          />
+          <button id="sendButton">Invia</button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/entry-client"></script>
   </body>
 </html>
